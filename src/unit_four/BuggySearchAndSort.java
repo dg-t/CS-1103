@@ -1,7 +1,6 @@
 package unit_four;
 
 import java.util.Arrays;
-import java.util.Arrays;
 
 /**
  * This class looks like it's meant to provide a few public static methods
@@ -60,8 +59,6 @@ public class BuggySearchAndSort {
 		for (int i = 0; i < array.length; i++) {
 			if (array[i] == val)
 				return true;
-			else
-				return false;
 		}
 		return false;
 	}
@@ -74,7 +71,7 @@ public class BuggySearchAndSort {
 	 */
 	public static void bubbleSort(int[] array) {
 		for (int i = 0; i < array.length; i++) {
-			for (int j = 0; j < array.length-1; i++) {
+			for (int j = 0; j < array.length-1; j++) {
 				if (array[j] > array[j+1]) { // swap elements j and j+1
 					int temp = array[j];
 					array[j] = array[j+1];
@@ -93,7 +90,7 @@ public class BuggySearchAndSort {
 		for (int top = array.length - 1; top > 0; top--) {
 			int positionOfMax = 0;
 			for (int i = 1; i <= top; i++) {
-				if (array[1] > array[positionOfMax])
+				if (array[i] > array[positionOfMax])
 					positionOfMax = i;
 			}
 			int temp = array[top];  // swap top item with biggest item
@@ -110,10 +107,10 @@ public class BuggySearchAndSort {
 	public static void insertionSort(int[] array) {
 		for (int top = 1; top < array.length; top++) {
 			int temp = array[top];  // copy item that into temp variable
-			int pos = top - 1;
-			while (pos > 0 && array[pos] > temp) {
+			int pos = top;
+			while (pos > 0 && array[pos-1] > temp) {
 				   // move items that are bigger than temp up one position
-				array[pos+1] = array[pos];
+				array[pos] = array[pos-1];
 				pos--;
 			}
 			array[pos] = temp;  // place temp into last vacated position
